@@ -138,7 +138,7 @@ def plot_mse_contour(w, gd_trace=None):
     plt.show()
 
 
-def draw_mishra_bird():
+def plot_mishra_bird():
     fig = plt.figure(figsize=(14, 10))
     x = np.arange(-10, 1, 0.1)
     y = np.arange(-6, 0.5, 0.1)
@@ -151,6 +151,14 @@ def draw_mishra_bird():
     ax.view_init(20, -60)
     plt.show()
 
+def plot_mishra_bird_contour():
+    fig = plt.figure(figsize=(14, 10))
+    x = np.arange(-10, 1, 0.1)
+    y = np.arange(-6, 0.5, 0.1)
+    X, Y = np.meshgrid(x, y)
+    Z = np.sin(Y) * np.exp((1 - np.cos(X)) ** 2) + np.cos(X) * np.cos(X) * np.exp((1 - np.sin(Y)) ** 2) + (X - Y) ** 2
+    plt.contour(X, Y, Z, 50, cmap=cm.coolwarm);
+    plt.show()
 
 n = 100
 data = generate_wave_set(n, 25)
